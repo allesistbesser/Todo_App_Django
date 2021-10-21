@@ -32,6 +32,8 @@
 ## Overview
 
 ![screenshot](/Screenshot.png)
+![screenshot](/updatePage.png)
+![screenshot](/deletePage.png)
 
 ### Built With
 
