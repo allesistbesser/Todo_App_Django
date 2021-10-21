@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="col-10 col-md-6 ms-3 mt-3 mb-5 font_KiteOne">
+    {% load crispy_forms_tags %}
+<form action="" method="post">
+    {% csrf_token %} {{form | crispy }}
+    <input class='btn btn-primary btn-sm mt-2' type="submit" value="Add">
+</form>
+</div>
+
+
+<div class='col-10 col-md-6 ms-3 font_KiteOne'>
+<table class="table table-hover table-secondary">
+    <thead class='table-dark'>
+      <tr>
+        <th scope="col">MyTodo</th>
+        <th scope="col">Case</th>
+        <th scope="col">Edit</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        {% for todo in todos  %}
+    <tr>
+        
+        {% if todo.completed %}
+        <td scope="row"><del>{{todo.title}}</del></td>
+        <td> <a class=''href="{% url 'toogle' todo.id %}"><i class="bi bi-check-circle-fill"></i></a></td>
+        {% else %}
+        <td scope="row">{{todo.title}}</td>
+        <td><a class=''href="{% url 'toogle' todo.id %}"><i class="bi bi-dash-circle-dotted"></i></a></td>
+        {% endif %}
+        
+        <td><a class='btn btn-warning btn-sm rounded-circle'href="{% url 'update' todo.id %}"><i class="bi bi-pen"></i></a></td>
+    </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

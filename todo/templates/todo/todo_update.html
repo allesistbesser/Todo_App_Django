@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class='col-10 col-md-6 m-3 shadow-lg p-5 '>
+    <div class='display-5 mb-3'>Update ToDo</div>
+    {% load crispy_forms_tags %}
+
+    <form action="" method="post" class="font_KiteOne shadow-lg p-2">
+        {% csrf_token %} {{form | crispy }}
+        <div class="d-flex justify-content-between mt-5">
+            <input class='btn btn-warning btn-sm'  type="submit" value="Update">
+            <a class='btn btn-danger btn-sm' href="{% url 'delete' todo.id %}">Delete</a>
+        </div>
+    </form>
+    <a class='container col-12 btn btn-primary mt-3 btn-sm'href="/list/"><i class="bi bi-backspace me-2"></i>Back to list</a>
+
+</div>
+
+{% endblock content %}
