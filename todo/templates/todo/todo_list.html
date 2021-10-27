@@ -2,8 +2,9 @@
 
 
 {% block content %}
+<div class='container'>
 
-<div class="col-10 col-md-6 ms-3 mt-3 mb-5 font_KiteOne">
+<div class="col-10 col-md-6 ms-3 mt-3 mb-5 font">
     {% load crispy_forms_tags %}
 <form action="" method="post">
     {% csrf_token %} {{form | crispy }}
@@ -12,7 +13,7 @@
 </div>
 
 
-<div class='col-10 col-md-6 ms-3 font_KiteOne'>
+<div class='col-10 col-md-6 ms-3 font'>
 <table class="table table-hover table-secondary">
     <thead class='table-dark'>
       <tr>
@@ -40,4 +41,5 @@
     </tbody>
   </table>
 </div>
+
 {% endblock content %}
